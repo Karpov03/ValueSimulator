@@ -1,5 +1,6 @@
 package com.megatech.iot;
 
+import java.io.File;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -8,16 +9,26 @@ import java.util.List;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
+@Service
 public class SimulateController {
 
 	static List<Asset> _assets;
+	
+	static String fileName = "assets.json";
+	static ClassLoader classLoader = ClassLoader.getSystemClassLoader();
+	static File file = new File(classLoader.getResource(fileName).getFile());
+	
+	
+	// static File file = new File("assets.json");
+	
+	
 		
 	private static void readAssetsFromFileIntoArray(String assetFile) {
 		JSONParser parser = new JSONParser();
 		try {
-			Object obj = parser.parse(new FileReader(assetFile));
+			Object obj = parser.parse(new FileReader(file));
 
 			JSONObject jsonObject = (JSONObject) obj;
 			// read json for each set of tags and populate in the corresponding
@@ -52,10 +63,16 @@ public class SimulateController {
 		}
 	}
 
-	public static void simulateData() {
+	public  void simulateData() {
 		// TODO Auto-generated method stub
 
 		_assets = new ArrayList<Asset>();
+
+		
+		
+		
+
+		
 		readAssetsFromFileIntoArray("assets.json");
 		
 		Iterator<Asset> assetIterator = _assets.iterator();

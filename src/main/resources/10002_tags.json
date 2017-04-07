@@ -1,0 +1,63 @@
+{
+	"tags_1_minute": [
+	{
+		"tag":"21",
+		"valueLoLimit":1400,
+		"valueHiLimit":1600
+	},
+	{
+		"tag":"22",
+		"valueLoLimit":100,
+		"valueHiLimit":500
+	},
+	{
+		"tag":"23",
+		"valueLoLimit":35,
+		"valueHiLimit":70
+	},
+	{
+		"tag":"24",
+		"valueLoLimit":35,
+		"valueHiLimit":70
+	},
+	{
+		"tag":"220",
+		"valueLoLimit":25,
+		"valueHiLimit":370
+	}
+	],
+	"tags_15_minutes": [
+	
+	{
+		"tag":"25",
+		"valueLoLimit":450,
+		"valueHiLimit":627
+	},
+	{
+		"tag":"26",
+		"valueLoLimit":260,
+		"valueHiLimit":360
+	},
+	{
+		"tag":"221",
+		"valueLoLimit":33,
+		"valueHiLimit":108
+	}
+	],
+	"tags_30_minutes": [
+	{
+		"tag":"27",
+		"valueLoLimit":325,
+		"valueHiLimit":450
+	},
+	{
+		"tag":"28",
+		"valueLoLimit":400,
+		"valueHiLimit":450
+	},{
+		"tag":"219",
+		"valueLoLimit":0,
+		"valueHiLimit":24
+	}
+	]
+}

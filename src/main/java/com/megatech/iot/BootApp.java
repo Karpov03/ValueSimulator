@@ -3,11 +3,10 @@ package com.megatech.iot;
 import org.springframework.boot.Banner;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.boot.web.support.SpringBootServletInitializer;
 
 @SpringBootApplication
-public class BootApp {
+public class BootApp extends SpringBootServletInitializer {
 
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
 		return configureApplication(builder);

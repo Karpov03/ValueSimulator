@@ -7,10 +7,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class SimulateRestController {
 	
+	SimulateController simu=new SimulateController();
 	@RequestMapping("/")
 	String home() {
 		System.out.println("Simulation Started");
-		SimulateController.simulateData();
+		simu.simulateData();
 		return "Simulating Data";
 	}
 

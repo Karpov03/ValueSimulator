@@ -1,0 +1,7 @@
+---
+applications:
+- name: ValueSimulator
+  memory: 512M
+  instances: 1
+  host: ValueSimulator
+  domain: mybluemix.net

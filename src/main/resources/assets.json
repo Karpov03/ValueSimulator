@@ -1,0 +1,14 @@
+{
+	"assets": [
+	{
+		"clientId":"d:yhgzrq:MCL-Energy:2001",
+		"topic":"iot-2/evt/status/fmt/JSON",
+		"broker":"tcp://yhgzrq.messaging.internetofthings.ibmcloud.com:1883",
+		"username":"use-token-auth",
+		"password":"HBhr3u3r32or90094@-u*ks@LKNJHsk",
+		"qos":0,
+		"tagFile":"10001_tags.json"
+	}	
+	
+	]
+}				
