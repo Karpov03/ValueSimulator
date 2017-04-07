@@ -5,30 +5,25 @@ import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
-import org.springframework.stereotype.Service;
 
-@Service
-public class SimulateController {
+public class Controller {
 
 	static List<Asset> _assets;
 	
+	
 	static String fileName = "assets.json";
 	static ClassLoader classLoader = ClassLoader.getSystemClassLoader();
-	static File file = new File(classLoader.getResource(fileName).getFile());
-	
-	
-	// static File file = new File("assets.json");
-	
-	
+	static File assetfile = new File(classLoader.getResource(fileName).getFile());
 		
 	private static void readAssetsFromFileIntoArray(String assetFile) {
 		JSONParser parser = new JSONParser();
 		try {
-			Object obj = parser.parse(new FileReader(file));
+			Object obj = parser.parse(new FileReader(assetfile));
 
 			JSONObject jsonObject = (JSONObject) obj;
 			// read json for each set of tags and populate in the corresponding
@@ -63,16 +58,10 @@ public class SimulateController {
 		}
 	}
 
-	public  void simulateData() {
+	public static void simulatedata() {
 		// TODO Auto-generated method stub
 
 		_assets = new ArrayList<Asset>();
-
-		
-		
-		
-
-		
 		readAssetsFromFileIntoArray("assets.json");
 		
 		Iterator<Asset> assetIterator = _assets.iterator();

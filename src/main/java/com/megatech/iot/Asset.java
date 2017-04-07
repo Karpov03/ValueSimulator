@@ -1,5 +1,6 @@
 package com.megatech.iot;
 
+import java.io.File;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -15,6 +16,11 @@ public class Asset {
 	String _topic, _broker, _clientId, _username, _password, _tagFile;
 	int _qos;
 	MqttHelper _mqttHelper;
+	
+	
+	String fileName = "10001_tags.json";
+	ClassLoader classLoader = ClassLoader.getSystemClassLoader();
+	File tagfile = new File(classLoader.getResource(fileName).getFile());
 	
 	public Asset(String topic, String broker, String clientId, String username, String password, String tagFile, int qos){
 		_topic = topic;
@@ -50,7 +56,7 @@ public class Asset {
 	private void readTagsFromFileIntoArrays(String tagFile) {
 		JSONParser parser = new JSONParser();
 		try {
-			Object obj = parser.parse(new FileReader(tagFile));
+			Object obj = parser.parse(new FileReader(tagfile));
 
 			JSONObject jsonObject = (JSONObject) obj;
 			// read json for each set of tags and populate in the corresponding
