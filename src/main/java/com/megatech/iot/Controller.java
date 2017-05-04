@@ -1,29 +1,26 @@
 package com.megatech.iot;
 
-import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
 
 public class Controller {
 
 	static List<Asset> _assets;
-	
-	
-	static String fileName = "assets.json";
-	static ClassLoader classLoader = ClassLoader.getSystemClassLoader();
-	static File assetfile = new File(classLoader.getResource(fileName).getFile());
 		
-	private static void readAssetsFromFileIntoArray(String assetFile) {
+	private static void readAssetsFromFileIntoArray(FileReader fr) {
 		JSONParser parser = new JSONParser();
 		try {
-			Object obj = parser.parse(new FileReader(assetfile));
+			Object obj = parser.parse(fr);
 
 			JSONObject jsonObject = (JSONObject) obj;
 			// read json for each set of tags and populate in the corresponding
@@ -58,18 +55,11 @@ public class Controller {
 		}
 	}
 
-	public static void simulatedata() {
+	public static void main(String[] args) throws FileNotFoundException, IOException {
 		// TODO Auto-generated method stub
 
-		_assets = new ArrayList<Asset>();
-		readAssetsFromFileIntoArray("assets.json");
 		
-		Iterator<Asset> assetIterator = _assets.iterator();
-		while (assetIterator.hasNext()) {
-			Asset a = assetIterator.next();
-			a.initializeTags();
-			a.runSimulation();
-		}
+		
 		
 	}
 }

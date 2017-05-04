@@ -7,7 +7,7 @@
 		"username":"use-token-auth",
 		"password":"HBhr3u3r32or90094@-u*ks@LKNJHsk",
 		"qos":0,
-		"tagFile":"10001_tags.json"
+		"tagFile":"src/main/resources/10001_tags.json"
 	}	
 	
 	]
